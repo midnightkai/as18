@@ -18,7 +18,12 @@ function main () {
         array_push($arr2, $i->TotalDeaths);
     }
     array_multisort($arr2, SORT_DESC, $arr1);
-    print_r($arr1);
+    $output = array_slice($arr1, 0, 10);
+    print_r($output);
+    foreach($output as $k =>$a){
+        $output[$k] = json_encode($a);
+    }
+    
 }  
 
 // read data from a URL into a string
@@ -33,3 +38,4 @@ function curl_get_contents($url) {
     return $data;
 }
 ?>
+
